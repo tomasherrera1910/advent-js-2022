@@ -12,11 +12,13 @@ El papel de regalo es el símbolo * y para envolver un regalo se coloca el símb
 const gifts = ['book', 'game', 'socks']
 const wrapped = wrapping(gifts)
 console.log(wrapped)
+```
 /* [
      "******\n*book*\n******",
      "******\n*game*\n******",
      "*******\n*socks*\n*******"
    ] */
+```   
 Como ves, el papel de regalo envuelve el string. Por arriba y por abajo, para no dejar ningún hueco, las esquinas también están cubiertas por el papel de regalo.
 
 ¡Suerte!
