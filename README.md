@@ -191,8 +191,7 @@ const cubeOfTwo = createCube(2)
  \/_/_/
  ```
 A tener en cuenta:
-
-Fíjate bien en los espacios en blanco que hay en el cubo.
-El cubo tiene que ser simétrico.
-Asegúrate de usar los símbolos correctos.
-Cada nueva línea del cubo debe terminar con un salto de línea (\n) excepto la última.
+- Fíjate bien en los espacios en blanco que hay en el cubo.
+- El cubo tiene que ser simétrico.
+- Asegúrate de usar los símbolos correctos.
+- Cada nueva línea del cubo debe terminar con un salto de línea (\n) excepto la última.
