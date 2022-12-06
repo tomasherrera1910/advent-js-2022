@@ -1,17 +1,13 @@
 function createCube(size){
-    const upFace = '/\\'
-    const middleUpFace = '_\\'
-    const downFace = '\\/'
-    const middleDownFace = '_/'
     let upCube = ''
     let downCube = ''
     let down = size
     for(let i=1; i< (size+1); i++){
-      upCube += ' '.repeat(size - i) + upFace.repeat(i) + middleUpFace.repeat(size) + '\n'
+      upCube += ' '.repeat(size - i) + '/\\'.repeat(i) + '_\\'.repeat(size) + '\n'
       if(i === size)
-      downCube += ' '.repeat(i-1) + downFace.repeat(down) + middleDownFace.repeat(size)
+      downCube += ' '.repeat(i-1) + '\\/'.repeat(down) + '_/'.repeat(size)
       else
-      downCube += ' '.repeat(i-1) + downFace.repeat(down) + middleDownFace.repeat(size) + '\n'
+      downCube += ' '.repeat(i-1) + '\\/'.repeat(down) + '_/'.repeat(size) + '\n'
       down--
     }
       return upCube + downCube
