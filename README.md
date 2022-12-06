@@ -1,7 +1,7 @@
 # advent-js-2022
 Retos de programación propuestos por Midudev. Los podes encontrar en: https://adventjs.dev/es
 
-## Reto 1
+## Reto 1 (Fácil)
 
 Este año los elfos han comprado una máquina que envuelve regalos. Pero... ¡no viene programada! Necesitamos crear un algoritmo que le ayude en la tarea.
 
@@ -9,7 +9,7 @@ A la máquina se le pasa un array con los regalos. Cada regalo es un string. Nec
 
 El papel de regalo es el símbolo * y para envolver un regalo se coloca el símbolo * de forma que rodee totalmente al string por todos los lados. Por ejemplo:
 
-```
+```js
 const gifts = ['book', 'game', 'socks']
 const wrapped = wrapping(gifts)
 console.log(wrapped)
@@ -23,7 +23,7 @@ Como ves, el papel de regalo envuelve el string. Por arriba y por abajo, para no
 
 ¡Suerte!
 
-## Reto 2
+## Reto 2 (Fácil)
 
 Un millonario ha comprado una red social y no trae buenas noticias. Ha anunciado que cada vez que una jornada de trabajo se pierde por un día festivo, habrá que compensarlo con dos horas extra otro día de ese mismo año.
 
@@ -32,7 +32,7 @@ Obviamente la gente que trabaja en la empresa no le ha hecho ni pizca de gracia 
 Al ser trabajo de oficina, su horario laboral es de lunes a viernes. Así que sólo tienes que preocuparte de los días festivos que caen en esos días.
 
 Dado un año y un array con las fechas de los días festivos, devuelve el número de horas extra que se harían ese año:
-```
+```js
 const year = 2022
 const holidays = ['01/06', '04/01', '12/25'] // formato MM/DD
 
@@ -48,14 +48,14 @@ Cosas a tener en cuenta y consejos:
 - Aunque el 31 de diciembre sea festivo, las horas extra se harán el mismo año y no el siguiente.
 - El método Date.getDay() te devuelve el día de la semana de una fecha. El 0 es domingo, el 1 es lunes, etc.
 
-## Reto 3
+## Reto 3 (Fácil)
 
 Tienes una caja de regalos de Navidad que Santa Claus quiere entregar a los niños. Cada regalo está representado por una cadena. Santa Claus tiene un trineo que puede llevar un peso limitado, y cada regalo dentro de la caja tiene un peso que es igual al número de letras en el nombre del regalo.
 
 Santa Claus también tiene una lista de renos que pueden ayudarlo a entregar los regalos. Cada renos tiene un límite de peso máximo que puede llevar. El límite de peso máximo de cada reno es igual a dos veces el número de letras en su nombre.
 
 Tu tarea es implementar una función distributeGifts(packOfGifts, reindeers) que recibe una caja de regalos y una lista de renos y devuelve el número máximo de cajas de estos regalos que Santa Claus puede entregar a los niños. Las cajas de regalos no se pueden dividir.
-```
+```js
 const packOfGifts = ["book", "doll", "ball"]
 const reindeers = ["dasher", "dancer"]
 
@@ -70,7 +70,7 @@ Cosas a tener en cuenta:
 - Las cajas de regalos no se pueden dividir.
 - Los nombres de los regalos y los renos siempre serán mayores que 0.
 
-## Reto 4
+## Reto 4 (Medio)
 Santa Claus necesita hacer una revisión de sus cajas de regalos para asegurarse de que puede empaquetarlas todas en su trineo. Cuenta con una serie de cajas de diferentes tamaños, que se caracterizan por su longitud, anchura y altura.
 
 Tu tarea es escribir una función que, dada una lista de cajas con sus tamaños, determine si es posible empaquetar todas las cajas en una sola de manera que cada caja contenga a otra (que a su vez contenga a otra, y así sucesivamente).
@@ -78,14 +78,14 @@ Tu tarea es escribir una función que, dada una lista de cajas con sus tamaños,
 Cada caja representa sus medidas con un objeto. Por ejemplo: {l: 2, w: 3, h: 2}. Esto significa que la caja tiene una longitud de 2, una anchura de 3 y una altura de 2.
 
 Una caja entra en otra caja si todos los lados de la primera son menores a los lados de la segunda. Los elfos nos han dicho que las cajas no se pueden rotar, así que no se puede poner una caja de 2x3x2 en una caja de 3x2x2. Veamos unos ejemplos:
-```
+```js
 fitsInOneBox([
   { l: 1, w: 1, h: 1 },
   { l: 2, w: 2, h: 2 }
 ]) // true
 ```
 En el ejemplo anterior, la caja más pequeña entra en la caja más grande. Por lo tanto, es posible empaquetar todas las cajas en una sola. Ahora veamos un caso que no:
-```
+```js
 const boxes = [
   { l: 1, w: 1, h: 1 },
   { l: 2, w: 2, h: 2 },
@@ -97,7 +97,7 @@ fitsInOneBox(boxes) // false
 En el ejemplo anterior, la caja más pequeña entra en la caja del medio, pero la caja del medio no entra en la caja más grande. Por lo tanto, no es posible empaquetar todas las cajas en una sola.
 
 Ten en cuenta que las cajas pueden no venir en orden:
-```
+```js
 const boxes = [
   { l: 1, w: 1, h: 1 },
   { l: 3, w: 3, h: 3 },
@@ -113,7 +113,7 @@ Cosas a tener en cuenta:
 - Las cajas pueden venir desordenadas de tamaño.
 - Las cajas no son siempre cuadradas, pueden ser rectangulares.
 
-## Reto 5
+## Reto 5 (Medio)
 
 Para no cansar a los renos, Papá Noel quiere dejar el máximo número de regalos haciendo el menor número posible de viajes.
 
@@ -122,7 +122,7 @@ Tiene un array de ciudades donde cada elemento es el número de regalos que pued
 Como no quiere dejar una ciudad a medias, si no puede dejar todos los regalos que son de esa ciudad, no deja ninguno allí.
 
 Crea un programa que le diga la suma más alta de regalos que podría repartir teniendo en cuenta el máximo de regalos que puede transportar y el número máximo de ciudades que puede visitar:
-```
+```js
 const giftsCities = [12, 3, 11, 5, 7]
 const maxGifts = 20
 const maxCities = 3
@@ -138,7 +138,7 @@ const maxCities = 3
 getMaxGifts(giftsCities, maxGifts, maxCities) // 20
 ```
 Si no se puede realizar ningún viaje que satisface los requerimientos, el resultado debe ser 0. Más ejemplos:
-```
+```js
 getMaxGifts([12, 3, 11, 5, 7], 20, 3) // 20
 getMaxGifts([50], 15, 1) // 0
 getMaxGifts([50], 100, 1) // 50
