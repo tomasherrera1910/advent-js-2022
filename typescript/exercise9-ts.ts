@@ -3,6 +3,6 @@ function countTimeTS(leds: number[]): number {
     const firstAndLastLength =
         ledsNotOn[0].length + ledsNotOn[ledsNotOn.length - 1].length
     return Math.max(
-        ...ledsNotOn.map((e) => e.length), firstAndLastLength
+        ...ledsNotOn.map((led) => led.length), firstAndLastLength
     ) * 7
 }
