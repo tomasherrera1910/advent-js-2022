@@ -1,14 +1,14 @@
 function checkJump(heights) {
-const maxHeight = Math.max(...heights)
+const maxIndex = heights.indexOf(Math.max(...heights))
 const upArray = heights
-        .slice(0, heights.indexOf(maxHeight))
+        .slice(0, maxIndex)
 
 const up =  upArray.length > 0 && 
         upArray
         .every((height, i) => height <= heights[i+1])
 
 const downArray = heights
-        .slice(heights.indexOf(maxHeight))                        
+        .slice(maxIndex)                        
 
 const down = downArray.length > 1 &&
          downArray
