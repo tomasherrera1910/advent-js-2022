@@ -879,38 +879,80 @@ JMP i: salta a la instrucción número i si V00 es diferente de 0. i está garan
 Como la CPU es de 8 bits, el número que podría representar va desde 0 hasta 255. Si incrementas el número 255 causa un desbordamiento y resulta en 0. Y si decrementas 0, resulta en 255. Ten en cuenta, entonces, que el número 280 sería 24 en la CPU.
 
 Después de que se haya ejecutado la última instrucción, debes devolver una matriz con el resultado para cada registro. De V00 a V07. Ejemplos:
+
 ```js
 executeCommands([
-  'MOV 5,V00',  // V00 es 5
-  'MOV 10,V01', // V01 es 10
-  'DEC V00',    // V00 ahora es 4
-  'ADD V00,V01' // V00 = V00 + V01 = 14
+  "MOV 5,V00", // V00 es 5
+  "MOV 10,V01", // V01 es 10
+  "DEC V00", // V00 ahora es 4
+  "ADD V00,V01", // V00 = V00 + V01 = 14
 ])
 
 // Output: [14, 10, 0, 0, 0, 0, 0]
 
 executeCommands([
-  'MOV 255,V00', // V00 es 255
-  'INC V00',     // V00 es 256, desborda a 0
-  'DEC V01',     // V01 es -1, desborda a 255
-  'DEC V01'      // V01 es 254
+  "MOV 255,V00", // V00 es 255
+  "INC V00", // V00 es 256, desborda a 0
+  "DEC V01", // V01 es -1, desborda a 255
+  "DEC V01", // V01 es 254
 ])
 
 // Output: [0, 254, 0, 0, 0, 0, 0]
 
 executeCommands([
-  'MOV 10,V00', // V00 es 10
-  'DEC V00',    // decrementa V00 en 1  <---┐
-  'INC V01',    // incrementa V01 en 1      |
-  'JMP 1',      // bucle hasta que V00 sea 0 ----┘
-  'INC V06'     // incrementa V06 en 1
+  "MOV 10,V00", // V00 es 10
+  "DEC V00", // decrementa V00 en 1  <---┐
+  "INC V01", // incrementa V01 en 1      |
+  "JMP 1", // bucle hasta que V00 sea 0 ----┘
+  "INC V06", // incrementa V06 en 1
 ])
 
 // Output: [ 0, 10, 0, 0, 0, 0, 1, 0 ]
 ```
-Todas las instrucciones proporcionadas ya están validadas y garantizadas de ser correctas.
 
+Todas las instrucciones proporcionadas ya están validadas y garantizadas de ser correctas.
 
 Basado en la entrevista técnica de SpaceX de CodeSignal
 
+## Reto 24 (Díficil)
 
+¡Ha llegado el día! Hoy vamos a repartir los regalos… pero los almacenes son un labertinto y los elfos están perdidos.
+
+Indielfo Jones quiere escribir un programa que al recibir una matriz, sepa si puede salir o no del laberinto rápidamente desde su entrada a la salida.
+
+Los laberintos tienen las siguientes posiciones:
+
+W: Es una pared, no se puede pasar por ahí.
+S: Punto de entrada al almacén.
+E: Punto de salida del almacén.
+: Los espacios en blanco es por donde se puede pasar.
+Los movimientos válidos son de una posición hacia arriba, abajo, izquierda o derecha. No se puede mover en diagonal.
+
+```js
+canExit([
+  [" ", " ", "W", " ", "S"],
+  [" ", " ", " ", " ", " "],
+  [" ", " ", " ", "W", " "],
+  ["W", "W", " ", "W", "W"],
+  [" ", " ", " ", " ", "E"],
+]) // -> true
+
+// Se puede salir porque empezamos en [0, 4]
+// y hay un camino hasta la salida que es [4, 4]
+
+canExit([
+  [" ", " ", "W", "W", "S"],
+  [" ", " ", " ", "W", " "],
+  [" ", " ", " ", "W", " "],
+  ["W", "W", " ", "W", "W"],
+  [" ", " ", " ", " ", "E"],
+]) // -> false
+
+// No hay manera de llegar de [0, 4] a [4, 4]
+```
+
+Recuerda que:
+
+- Sólo tienes que devolver si se puede salir del laberinto con un booleano.
+- Las paredes W no se pueden saltar.
+- No se pueden salir de los límites de la matriz, siempre hay que seguir un camino interno.
